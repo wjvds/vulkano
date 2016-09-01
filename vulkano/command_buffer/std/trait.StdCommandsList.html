@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `StdCommandsList` trait in crate `vulkano`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, StdCommandsList">
+
+    <title>vulkano::command_buffer::std::StdCommandsList - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>vulkano</a>::<wbr><a href='../index.html'>command_buffer</a>::<wbr><a href='index.html'>std</a></p><script>window.sidebarCurrent = {name: 'StdCommandsList', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>vulkano</a>::<wbr><a href='../index.html'>command_buffer</a>::<wbr><a href='index.html'>std</a>::<wbr><a class='trait' href=''>StdCommandsList</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-4615' class='srclink' href='../../../src/vulkano/vulkano/src/command_buffer/std/mod.rs.html#41-177' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub unsafe trait StdCommandsList: <a class='trait' href='../../../vulkano/command_buffer/std/trait.ResourcesStates.html' title='vulkano::command_buffer::std::ResourcesStates'>ResourcesStates</a> {
+    type <a href='#associatedtype.Pool' class='type'>Pool</a>: <a class='trait' href='../../../vulkano/command_buffer/pool/trait.CommandPool.html' title='vulkano::command_buffer::pool::CommandPool'>CommandPool</a>;
+    type <a href='#associatedtype.Output' class='type'>Output</a>: <a class='trait' href='../../../vulkano/command_buffer/submit/trait.CommandBuffer.html' title='vulkano::command_buffer::submit::CommandBuffer'>CommandBuffer</a>&lt;Pool=Self::<a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>Pool</a>&gt;;
+    fn <a href='#tymethod.buildable_state' class='fnname'>buildable_state</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.num_commands' class='fnname'>num_commands</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>;
+    fn <a href='#tymethod.check_queue_validity' class='fnname'>check_queue_validity</a>(&amp;self, queue: <a class='struct' href='../../../vulkano/instance/struct.QueueFamily.html' title='vulkano::instance::QueueFamily'>QueueFamily</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;;
+    fn <a href='#tymethod.is_compute_pipeline_bound' class='fnname'>is_compute_pipeline_bound</a>&lt;Pl&gt;(&amp;self, pipeline: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../../vulkano/pipeline/struct.ComputePipeline.html' title='vulkano::pipeline::ComputePipeline'>ComputePipeline</a>&lt;Pl&gt;&gt;) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.is_graphics_pipeline_bound' class='fnname'>is_graphics_pipeline_bound</a>&lt;Pv,&nbsp;Pl,&nbsp;Prp&gt;(&amp;self, pipeline: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../../vulkano/pipeline/struct.GraphicsPipeline.html' title='vulkano::pipeline::GraphicsPipeline'>GraphicsPipeline</a>&lt;Pv,&nbsp;Pl,&nbsp;Prp&gt;&gt;) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    unsafe fn <a href='#tymethod.raw_build' class='fnname'>raw_build</a>&lt;I,&nbsp;F&gt;(self, additional_elements: F, barriers: I, final_barrier: <a class='struct' href='../../../vulkano/command_buffer/sys/struct.PipelineBarrierBuilder.html' title='vulkano::command_buffer::sys::PipelineBarrierBuilder'>PipelineBarrierBuilder</a>) -&gt; Self::<a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>Output</a> <span class='where'>where F: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.FnOnce.html' title='core::ops::FnOnce'>FnOnce</a>(&amp;mut <a class='struct' href='../../../vulkano/command_buffer/sys/struct.UnsafeCommandBufferBuilder.html' title='vulkano::command_buffer::sys::UnsafeCommandBufferBuilder'>UnsafeCommandBufferBuilder</a>&lt;Self::<a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>Pool</a>&gt;), I: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, <a class='struct' href='../../../vulkano/command_buffer/sys/struct.PipelineBarrierBuilder.html' title='vulkano::command_buffer::sys::PipelineBarrierBuilder'>PipelineBarrierBuilder</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;</span>;
+
+    fn <a href='#method.update_buffer' class='fnname'>update_buffer</a>&lt;'a,&nbsp;B,&nbsp;D:&nbsp;?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>&gt;(self, buffer: B, data: &amp;'a D) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/update_buffer/struct.UpdateCommand.html' title='vulkano::command_buffer::std::update_buffer::UpdateCommand'>UpdateCommand</a>&lt;'a,&nbsp;Self,&nbsp;B,&nbsp;D&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.OutsideRenderPass.html' title='vulkano::command_buffer::std::OutsideRenderPass'>OutsideRenderPass</a>, B: <a class='trait' href='../../../vulkano/buffer/traits/trait.TrackedBuffer.html' title='vulkano::buffer::traits::TrackedBuffer'>TrackedBuffer</a>, D: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> + 'static</span> { ... }
+    fn <a href='#method.fill_buffer' class='fnname'>fill_buffer</a>&lt;B&gt;(self, buffer: B, data: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/fill_buffer/struct.FillCommand.html' title='vulkano::command_buffer::std::fill_buffer::FillCommand'>FillCommand</a>&lt;Self,&nbsp;B&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.OutsideRenderPass.html' title='vulkano::command_buffer::std::OutsideRenderPass'>OutsideRenderPass</a>, B: <a class='trait' href='../../../vulkano/buffer/traits/trait.TrackedBuffer.html' title='vulkano::buffer::traits::TrackedBuffer'>TrackedBuffer</a></span> { ... }
+    fn <a href='#method.dispatch' class='fnname'>dispatch</a>&lt;'a,&nbsp;Pl,&nbsp;S,&nbsp;Pc&gt;(self, pipeline: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../../vulkano/pipeline/struct.ComputePipeline.html' title='vulkano::pipeline::ComputePipeline'>ComputePipeline</a>&lt;Pl&gt;&gt;, sets: S, dimensions: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 3]</a>, push_constants: &amp;'a Pc) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/dispatch/struct.DispatchCommand.html' title='vulkano::command_buffer::std::dispatch::DispatchCommand'>DispatchCommand</a>&lt;'a,&nbsp;Self,&nbsp;Pl,&nbsp;S,&nbsp;Pc&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>StdCommandsList</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.OutsideRenderPass.html' title='vulkano::command_buffer::std::OutsideRenderPass'>OutsideRenderPass</a>, Pl: <a class='trait' href='../../../vulkano/descriptor/pipeline_layout/trait.PipelineLayout.html' title='vulkano::descriptor::pipeline_layout::PipelineLayout'>PipelineLayout</a>, S: <a class='trait' href='../../../vulkano/descriptor/descriptor_set/collection/trait.TrackedDescriptorSetsCollection.html' title='vulkano::descriptor::descriptor_set::collection::TrackedDescriptorSetsCollection'>TrackedDescriptorSetsCollection</a>, Pc: 'a</span> { ... }
+    fn <a href='#method.begin_render_pass' class='fnname'>begin_render_pass</a>&lt;F,&nbsp;C&gt;(self, framebuffer: F, secondary: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, clear_values: C) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/render_pass/struct.BeginRenderPassCommand.html' title='vulkano::command_buffer::std::render_pass::BeginRenderPassCommand'>BeginRenderPassCommand</a>&lt;Self,&nbsp;F::RenderPass,&nbsp;F&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.OutsideRenderPass.html' title='vulkano::command_buffer::std::OutsideRenderPass'>OutsideRenderPass</a>, F: Framebuffer, F::RenderPass: <a class='trait' href='../../../vulkano/framebuffer/trait.RenderPass.html' title='vulkano::framebuffer::RenderPass'>RenderPass</a> + <a class='trait' href='../../../vulkano/framebuffer/trait.RenderPassClearValues.html' title='vulkano::framebuffer::RenderPassClearValues'>RenderPassClearValues</a>&lt;C&gt;</span> { ... }
+    fn <a href='#method.next_subpass' class='fnname'>next_subpass</a>(self, secondary: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/render_pass/struct.NextSubpassCommand.html' title='vulkano::command_buffer::std::render_pass::NextSubpassCommand'>NextSubpassCommand</a>&lt;Self&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.InsideRenderPass.html' title='vulkano::command_buffer::std::InsideRenderPass'>InsideRenderPass</a></span> { ... }
+    fn <a href='#method.end_render_pass' class='fnname'>end_render_pass</a>(self) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/render_pass/struct.EndRenderPassCommand.html' title='vulkano::command_buffer::std::render_pass::EndRenderPassCommand'>EndRenderPassCommand</a>&lt;Self&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.InsideRenderPass.html' title='vulkano::command_buffer::std::InsideRenderPass'>InsideRenderPass</a></span> { ... }
+    fn <a href='#method.draw' class='fnname'>draw</a>&lt;'a,&nbsp;Pv,&nbsp;Pl,&nbsp;Prp,&nbsp;S,&nbsp;Pc,&nbsp;V&gt;(self, pipeline: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../../vulkano/pipeline/struct.GraphicsPipeline.html' title='vulkano::pipeline::GraphicsPipeline'>GraphicsPipeline</a>&lt;Pv,&nbsp;Pl,&nbsp;Prp&gt;&gt;, dynamic: &amp;<a class='struct' href='../../../vulkano/command_buffer/struct.DynamicState.html' title='vulkano::command_buffer::DynamicState'>DynamicState</a>, vertices: V, sets: S, push_constants: &amp;'a Pc) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/draw/struct.DrawCommand.html' title='vulkano::command_buffer::std::draw::DrawCommand'>DrawCommand</a>&lt;'a,&nbsp;Self,&nbsp;Pv,&nbsp;Pl,&nbsp;Prp,&nbsp;S,&nbsp;Pc&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>StdCommandsList</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.InsideRenderPass.html' title='vulkano::command_buffer::std::InsideRenderPass'>InsideRenderPass</a>, Pl: <a class='trait' href='../../../vulkano/descriptor/pipeline_layout/trait.PipelineLayout.html' title='vulkano::descriptor::pipeline_layout::PipelineLayout'>PipelineLayout</a>, S: <a class='trait' href='../../../vulkano/descriptor/descriptor_set/collection/trait.TrackedDescriptorSetsCollection.html' title='vulkano::descriptor::descriptor_set::collection::TrackedDescriptorSetsCollection'>TrackedDescriptorSetsCollection</a>, Pc: 'a, Pv: <a class='trait' href='../../../vulkano/pipeline/vertex/trait.Source.html' title='vulkano::pipeline::vertex::Source'>Source</a>&lt;V&gt;</span> { ... }
+    fn <a href='#method.build' class='fnname'>build</a>(self) -&gt; Self::<a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>Output</a> <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span> { ... }
+}</pre><div class='docblock'><p>A list of commands that can be turned into a command buffer.</p>
+</div>
+            <h2 id='associated-types'>Associated Types</h2>
+            <div class='methods'>
+        <h3 id='associatedtype.Pool' class='method stab '><code>type <a href='#associatedtype.Pool' class='type'>Pool</a>: <a class='trait' href='../../../vulkano/command_buffer/pool/trait.CommandPool.html' title='vulkano::command_buffer::pool::CommandPool'>CommandPool</a></code></h3><div class='docblock'><p>The type of the pool that will be used to create the command buffer.</p>
+</div><h3 id='associatedtype.Output' class='method stab '><code>type <a href='#associatedtype.Output' class='type'>Output</a>: <a class='trait' href='../../../vulkano/command_buffer/submit/trait.CommandBuffer.html' title='vulkano::command_buffer::submit::CommandBuffer'>CommandBuffer</a>&lt;Pool=Self::<a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>Pool</a>&gt;</code></h3><div class='docblock'><p>The type of the command buffer that will be generated.</p>
+</div></div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.buildable_state' class='method stab '><code>fn <a href='#tymethod.buildable_state' class='fnname'>buildable_state</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if the command buffer can be built. This function should always return true,
+except when we&#39;re building a primary command buffer that is inside a render pass.</p>
+</div><h3 id='tymethod.num_commands' class='method stab '><code>fn <a href='#tymethod.num_commands' class='fnname'>num_commands</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Returns the number of commands in the commands list.</p>
+
+<p>Note that multiple actual commands may count for just 1.</p>
+</div><h3 id='tymethod.check_queue_validity' class='method stab '><code>fn <a href='#tymethod.check_queue_validity' class='fnname'>check_queue_validity</a>(&amp;self, queue: <a class='struct' href='../../../vulkano/instance/struct.QueueFamily.html' title='vulkano::instance::QueueFamily'>QueueFamily</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h3><div class='docblock'><p>Checks whether the command can be executed on the given queue family.</p>
+</div><h3 id='tymethod.is_compute_pipeline_bound' class='method stab '><code>fn <a href='#tymethod.is_compute_pipeline_bound' class='fnname'>is_compute_pipeline_bound</a>&lt;Pl&gt;(&amp;self, pipeline: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../../vulkano/pipeline/struct.ComputePipeline.html' title='vulkano::pipeline::ComputePipeline'>ComputePipeline</a>&lt;Pl&gt;&gt;) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if the given compute pipeline is currently binded in the commands list.</p>
+</div><h3 id='tymethod.is_graphics_pipeline_bound' class='method stab '><code>fn <a href='#tymethod.is_graphics_pipeline_bound' class='fnname'>is_graphics_pipeline_bound</a>&lt;Pv,&nbsp;Pl,&nbsp;Prp&gt;(&amp;self, pipeline: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../../vulkano/pipeline/struct.GraphicsPipeline.html' title='vulkano::pipeline::GraphicsPipeline'>GraphicsPipeline</a>&lt;Pv,&nbsp;Pl,&nbsp;Prp&gt;&gt;) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Returns true if the given graphics pipeline is currently binded in the commands list.</p>
+</div><h3 id='tymethod.raw_build' class='method stab '><code>unsafe fn <a href='#tymethod.raw_build' class='fnname'>raw_build</a>&lt;I,&nbsp;F&gt;(self, additional_elements: F, barriers: I, final_barrier: <a class='struct' href='../../../vulkano/command_buffer/sys/struct.PipelineBarrierBuilder.html' title='vulkano::command_buffer::sys::PipelineBarrierBuilder'>PipelineBarrierBuilder</a>) -&gt; Self::<a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>Output</a> <span class='where'>where F: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.FnOnce.html' title='core::ops::FnOnce'>FnOnce</a>(&amp;mut <a class='struct' href='../../../vulkano/command_buffer/sys/struct.UnsafeCommandBufferBuilder.html' title='vulkano::command_buffer::sys::UnsafeCommandBufferBuilder'>UnsafeCommandBufferBuilder</a>&lt;Self::<a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>Pool</a>&gt;), I: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, <a class='struct' href='../../../vulkano/command_buffer/sys/struct.PipelineBarrierBuilder.html' title='vulkano::command_buffer::sys::PipelineBarrierBuilder'>PipelineBarrierBuilder</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;</span></code></h3><div class='docblock'><p>Turns the commands list into a command buffer.</p>
+
+<p>This function accepts additional arguments that will customize the output:</p>
+
+<ul>
+<li><code>additional_elements</code> is a closure that must be called on the command buffer builder
+after it has finished building and before <code>final_barrier</code> are added.</li>
+<li><code>barriers</code> is a list of pipeline barriers accompanied by a command number. The
+pipeline barrier must happen after the given command number. Usually you want all the
+the command numbers to be inferior to <code>num_commands</code>.</li>
+<li><code>final_barrier</code> is a pipeline barrier that must be added at the end of the
+command buffer builder.</li>
+</ul>
+
+<p>This function doesn&#39;t check that <code>buildable_state</code> returns true.</p>
+</div></div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.update_buffer' class='method stab '><code>fn <a href='#method.update_buffer' class='fnname'>update_buffer</a>&lt;'a,&nbsp;B,&nbsp;D:&nbsp;?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>&gt;(self, buffer: B, data: &amp;'a D) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/update_buffer/struct.UpdateCommand.html' title='vulkano::command_buffer::std::update_buffer::UpdateCommand'>UpdateCommand</a>&lt;'a,&nbsp;Self,&nbsp;B,&nbsp;D&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.OutsideRenderPass.html' title='vulkano::command_buffer::std::OutsideRenderPass'>OutsideRenderPass</a>, B: <a class='trait' href='../../../vulkano/buffer/traits/trait.TrackedBuffer.html' title='vulkano::buffer::traits::TrackedBuffer'>TrackedBuffer</a>, D: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> + 'static</span></code></h3><div class='docblock'><p>Adds a command that writes the content of a buffer.</p>
+
+<p>After this command is executed, the content of <code>buffer</code> will become <code>data</code>.</p>
+</div><h3 id='method.fill_buffer' class='method stab '><code>fn <a href='#method.fill_buffer' class='fnname'>fill_buffer</a>&lt;B&gt;(self, buffer: B, data: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/fill_buffer/struct.FillCommand.html' title='vulkano::command_buffer::std::fill_buffer::FillCommand'>FillCommand</a>&lt;Self,&nbsp;B&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.OutsideRenderPass.html' title='vulkano::command_buffer::std::OutsideRenderPass'>OutsideRenderPass</a>, B: <a class='trait' href='../../../vulkano/buffer/traits/trait.TrackedBuffer.html' title='vulkano::buffer::traits::TrackedBuffer'>TrackedBuffer</a></span></code></h3><div class='docblock'><p>Adds a command that writes the content of a buffer.</p>
+</div><h3 id='method.dispatch' class='method stab '><code>fn <a href='#method.dispatch' class='fnname'>dispatch</a>&lt;'a,&nbsp;Pl,&nbsp;S,&nbsp;Pc&gt;(self, pipeline: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../../vulkano/pipeline/struct.ComputePipeline.html' title='vulkano::pipeline::ComputePipeline'>ComputePipeline</a>&lt;Pl&gt;&gt;, sets: S, dimensions: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 3]</a>, push_constants: &amp;'a Pc) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/dispatch/struct.DispatchCommand.html' title='vulkano::command_buffer::std::dispatch::DispatchCommand'>DispatchCommand</a>&lt;'a,&nbsp;Self,&nbsp;Pl,&nbsp;S,&nbsp;Pc&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>StdCommandsList</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.OutsideRenderPass.html' title='vulkano::command_buffer::std::OutsideRenderPass'>OutsideRenderPass</a>, Pl: <a class='trait' href='../../../vulkano/descriptor/pipeline_layout/trait.PipelineLayout.html' title='vulkano::descriptor::pipeline_layout::PipelineLayout'>PipelineLayout</a>, S: <a class='trait' href='../../../vulkano/descriptor/descriptor_set/collection/trait.TrackedDescriptorSetsCollection.html' title='vulkano::descriptor::descriptor_set::collection::TrackedDescriptorSetsCollection'>TrackedDescriptorSetsCollection</a>, Pc: 'a</span></code></h3><div class='docblock'><p>Adds a command that executes a compute shader.</p>
+
+<p>The <code>dimensions</code> are the number of working groups to start. The GPU will execute the
+compute shader <code>dimensions[0] * dimensions[1] * dimensions[2]</code> times.</p>
+
+<p>The <code>pipeline</code> is the compute pipeline that will be executed, and the sets and push
+constants will be accessible to all the invocations.</p>
+</div><h3 id='method.begin_render_pass' class='method stab '><code>fn <a href='#method.begin_render_pass' class='fnname'>begin_render_pass</a>&lt;F,&nbsp;C&gt;(self, framebuffer: F, secondary: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, clear_values: C) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/render_pass/struct.BeginRenderPassCommand.html' title='vulkano::command_buffer::std::render_pass::BeginRenderPassCommand'>BeginRenderPassCommand</a>&lt;Self,&nbsp;F::RenderPass,&nbsp;F&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.OutsideRenderPass.html' title='vulkano::command_buffer::std::OutsideRenderPass'>OutsideRenderPass</a>, F: Framebuffer, F::RenderPass: <a class='trait' href='../../../vulkano/framebuffer/trait.RenderPass.html' title='vulkano::framebuffer::RenderPass'>RenderPass</a> + <a class='trait' href='../../../vulkano/framebuffer/trait.RenderPassClearValues.html' title='vulkano::framebuffer::RenderPassClearValues'>RenderPassClearValues</a>&lt;C&gt;</span></code></h3><div class='docblock'><p>Adds a command that starts a render pass.</p>
+
+<p>If <code>secondary</code> is true, then you will only be able to add secondary command buffers while
+you&#39;re inside the first subpass on the render pass. If <code>secondary</code> is false, you will only
+be able to add inline draw commands and not secondary command buffers.</p>
+
+<p>You must call this before you can add draw commands.</p>
+</div><h3 id='method.next_subpass' class='method stab '><code>fn <a href='#method.next_subpass' class='fnname'>next_subpass</a>(self, secondary: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/render_pass/struct.NextSubpassCommand.html' title='vulkano::command_buffer::std::render_pass::NextSubpassCommand'>NextSubpassCommand</a>&lt;Self&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.InsideRenderPass.html' title='vulkano::command_buffer::std::InsideRenderPass'>InsideRenderPass</a></span></code></h3><div class='docblock'><p>Adds a command that jumps to the next subpass of the current render pass.</p>
+</div><h3 id='method.end_render_pass' class='method stab '><code>fn <a href='#method.end_render_pass' class='fnname'>end_render_pass</a>(self) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/render_pass/struct.EndRenderPassCommand.html' title='vulkano::command_buffer::std::render_pass::EndRenderPassCommand'>EndRenderPassCommand</a>&lt;Self&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.InsideRenderPass.html' title='vulkano::command_buffer::std::InsideRenderPass'>InsideRenderPass</a></span></code></h3><div class='docblock'><p>Adds a command that ends the current render pass.</p>
+
+<p>This must be called after you went through all the subpasses and before you can build
+the command buffer or add further commands.</p>
+</div><h3 id='method.draw' class='method stab '><code>fn <a href='#method.draw' class='fnname'>draw</a>&lt;'a,&nbsp;Pv,&nbsp;Pl,&nbsp;Prp,&nbsp;S,&nbsp;Pc,&nbsp;V&gt;(self, pipeline: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../../vulkano/pipeline/struct.GraphicsPipeline.html' title='vulkano::pipeline::GraphicsPipeline'>GraphicsPipeline</a>&lt;Pv,&nbsp;Pl,&nbsp;Prp&gt;&gt;, dynamic: &amp;<a class='struct' href='../../../vulkano/command_buffer/struct.DynamicState.html' title='vulkano::command_buffer::DynamicState'>DynamicState</a>, vertices: V, sets: S, push_constants: &amp;'a Pc) -&gt; <a class='struct' href='../../../vulkano/command_buffer/std/draw/struct.DrawCommand.html' title='vulkano::command_buffer::std::draw::DrawCommand'>DrawCommand</a>&lt;'a,&nbsp;Self,&nbsp;Pv,&nbsp;Pl,&nbsp;Prp,&nbsp;S,&nbsp;Pc&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>StdCommandsList</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.InsideRenderPass.html' title='vulkano::command_buffer::std::InsideRenderPass'>InsideRenderPass</a>, Pl: <a class='trait' href='../../../vulkano/descriptor/pipeline_layout/trait.PipelineLayout.html' title='vulkano::descriptor::pipeline_layout::PipelineLayout'>PipelineLayout</a>, S: <a class='trait' href='../../../vulkano/descriptor/descriptor_set/collection/trait.TrackedDescriptorSetsCollection.html' title='vulkano::descriptor::descriptor_set::collection::TrackedDescriptorSetsCollection'>TrackedDescriptorSetsCollection</a>, Pc: 'a, Pv: <a class='trait' href='../../../vulkano/pipeline/vertex/trait.Source.html' title='vulkano::pipeline::vertex::Source'>Source</a>&lt;V&gt;</span></code></h3><div class='docblock'><p>Adds a command that draws.</p>
+
+<p>Can only be used from inside a render pass.</p>
+</div><h3 id='method.build' class='method stab '><code>fn <a href='#method.build' class='fnname'>build</a>(self) -&gt; Self::<a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>Output</a> <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></h3><div class='docblock'><p>Turns the commands list into a command buffer that can be submitted.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl&lt;'a,&nbsp;L,&nbsp;Pl,&nbsp;S,&nbsp;Pc&gt; StdCommandsList for <a class='struct' href='../../../vulkano/command_buffer/std/dispatch/struct.DispatchCommand.html' title='vulkano::command_buffer::std::dispatch::DispatchCommand'>DispatchCommand</a>&lt;'a,&nbsp;L,&nbsp;Pl,&nbsp;S,&nbsp;Pc&gt; <span class='where'>where L: <a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>StdCommandsList</a>, Pl: <a class='trait' href='../../../vulkano/descriptor/pipeline_layout/trait.PipelineLayout.html' title='vulkano::descriptor::pipeline_layout::PipelineLayout'>PipelineLayout</a>, S: <a class='trait' href='../../../vulkano/descriptor/descriptor_set/collection/trait.TrackedDescriptorSetsCollection.html' title='vulkano::descriptor::descriptor_set::collection::TrackedDescriptorSetsCollection'>TrackedDescriptorSetsCollection</a>, Pc: 'a</span></code></li>
+<li><code>impl&lt;'a,&nbsp;L,&nbsp;Pv,&nbsp;Pl,&nbsp;Prp,&nbsp;S,&nbsp;Pc&gt; StdCommandsList for <a class='struct' href='../../../vulkano/command_buffer/std/draw/struct.DrawCommand.html' title='vulkano::command_buffer::std::draw::DrawCommand'>DrawCommand</a>&lt;'a,&nbsp;L,&nbsp;Pv,&nbsp;Pl,&nbsp;Prp,&nbsp;S,&nbsp;Pc&gt; <span class='where'>where L: <a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>StdCommandsList</a>, Pl: <a class='trait' href='../../../vulkano/descriptor/pipeline_layout/trait.PipelineLayout.html' title='vulkano::descriptor::pipeline_layout::PipelineLayout'>PipelineLayout</a>, S: <a class='trait' href='../../../vulkano/descriptor/descriptor_set/collection/trait.TrackedDescriptorSetsCollection.html' title='vulkano::descriptor::descriptor_set::collection::TrackedDescriptorSetsCollection'>TrackedDescriptorSetsCollection</a>, Pc: 'a</span></code></li>
+<li><code>impl&lt;P&gt; StdCommandsList for <a class='struct' href='../../../vulkano/command_buffer/std/empty/struct.PrimaryCbBuilder.html' title='vulkano::command_buffer::std::empty::PrimaryCbBuilder'>PrimaryCbBuilder</a>&lt;P&gt; <span class='where'>where P: <a class='trait' href='../../../vulkano/command_buffer/pool/trait.CommandPool.html' title='vulkano::command_buffer::pool::CommandPool'>CommandPool</a></span></code></li>
+<li><code>impl&lt;L,&nbsp;B&gt; StdCommandsList for <a class='struct' href='../../../vulkano/command_buffer/std/fill_buffer/struct.FillCommand.html' title='vulkano::command_buffer::std::fill_buffer::FillCommand'>FillCommand</a>&lt;L,&nbsp;B&gt; <span class='where'>where B: <a class='trait' href='../../../vulkano/buffer/traits/trait.TrackedBuffer.html' title='vulkano::buffer::traits::TrackedBuffer'>TrackedBuffer</a>, L: <a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>StdCommandsList</a></span></code></li>
+<li><code>impl&lt;L,&nbsp;Rp,&nbsp;Fb&gt; StdCommandsList for <a class='struct' href='../../../vulkano/command_buffer/std/render_pass/struct.BeginRenderPassCommand.html' title='vulkano::command_buffer::std::render_pass::BeginRenderPassCommand'>BeginRenderPassCommand</a>&lt;L,&nbsp;Rp,&nbsp;Fb&gt; <span class='where'>where L: <a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>StdCommandsList</a>, Rp: <a class='trait' href='../../../vulkano/framebuffer/trait.RenderPass.html' title='vulkano::framebuffer::RenderPass'>RenderPass</a>, Fb: Framebuffer</span></code></li>
+<li><code>impl&lt;L&gt; StdCommandsList for <a class='struct' href='../../../vulkano/command_buffer/std/render_pass/struct.NextSubpassCommand.html' title='vulkano::command_buffer::std::render_pass::NextSubpassCommand'>NextSubpassCommand</a>&lt;L&gt; <span class='where'>where L: <a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>StdCommandsList</a> + <a class='trait' href='../../../vulkano/command_buffer/std/trait.InsideRenderPass.html' title='vulkano::command_buffer::std::InsideRenderPass'>InsideRenderPass</a></span></code></li>
+<li><code>impl&lt;L&gt; StdCommandsList for <a class='struct' href='../../../vulkano/command_buffer/std/render_pass/struct.EndRenderPassCommand.html' title='vulkano::command_buffer::std::render_pass::EndRenderPassCommand'>EndRenderPassCommand</a>&lt;L&gt; <span class='where'>where L: <a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>StdCommandsList</a></span></code></li>
+<li><code>impl&lt;'a,&nbsp;L,&nbsp;B,&nbsp;D:&nbsp;?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>&gt; StdCommandsList for <a class='struct' href='../../../vulkano/command_buffer/std/update_buffer/struct.UpdateCommand.html' title='vulkano::command_buffer::std::update_buffer::UpdateCommand'>UpdateCommand</a>&lt;'a,&nbsp;L,&nbsp;B,&nbsp;D&gt; <span class='where'>where B: <a class='trait' href='../../../vulkano/buffer/traits/trait.TrackedBuffer.html' title='vulkano::buffer::traits::TrackedBuffer'>TrackedBuffer</a>, L: <a class='trait' href='../../../vulkano/command_buffer/std/trait.StdCommandsList.html' title='vulkano::command_buffer::std::StdCommandsList'>StdCommandsList</a>, D: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> + 'static</span></code></li>
+</ul><script type="text/javascript" async
+                         src="../../../implementors/vulkano/command_buffer/std/trait.StdCommandsList.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "vulkano";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

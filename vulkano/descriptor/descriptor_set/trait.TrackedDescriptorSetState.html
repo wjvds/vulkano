@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `TrackedDescriptorSetState` trait in crate `vulkano`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, TrackedDescriptorSetState">
+
+    <title>vulkano::descriptor::descriptor_set::TrackedDescriptorSetState - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>vulkano</a>::<wbr><a href='../index.html'>descriptor</a>::<wbr><a href='index.html'>descriptor_set</a></p><script>window.sidebarCurrent = {name: 'TrackedDescriptorSetState', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>vulkano</a>::<wbr><a href='../index.html'>descriptor</a>::<wbr><a href='index.html'>descriptor_set</a>::<wbr><a class='trait' href=''>TrackedDescriptorSetState</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-8139' class='srclink' href='../../../src/vulkano/vulkano/src/descriptor/descriptor_set/mod.rs.html#68-100' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub unsafe trait TrackedDescriptorSetState: <a class='trait' href='../../../vulkano/command_buffer/std/trait.ResourcesStates.html' title='vulkano::command_buffer::std::ResourcesStates'>ResourcesStates</a> {
+    type <a href='#associatedtype.Finished' class='type'>Finished</a>: <a class='trait' href='../../../vulkano/descriptor/descriptor_set/trait.TrackedDescriptorSetFinished.html' title='vulkano::descriptor::descriptor_set::TrackedDescriptorSetFinished'>TrackedDescriptorSetFinished</a>;
+    unsafe fn <a href='#tymethod.extract_buffer_state' class='fnname'>extract_buffer_state</a>&lt;B&gt;(&amp;mut self, buffer: &amp;B) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;B::CommandListState&gt; <span class='where'>where B: <a class='trait' href='../../../vulkano/buffer/traits/trait.TrackedBuffer.html' title='vulkano::buffer::traits::TrackedBuffer'>TrackedBuffer</a></span>;
+    unsafe fn <a href='#tymethod.extract_image_state' class='fnname'>extract_image_state</a>&lt;I&gt;(&amp;mut self, image: &amp;I) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;I::CommandListState&gt; <span class='where'>where I: <a class='trait' href='../../../vulkano/image/traits/trait.TrackedImage.html' title='vulkano::image::traits::TrackedImage'>TrackedImage</a></span>;
+    unsafe fn <a href='#tymethod.finish' class='fnname'>finish</a>(self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>Self::<a class='trait' href='../../../vulkano/descriptor/descriptor_set/trait.TrackedDescriptorSetState.html' title='vulkano::descriptor::descriptor_set::TrackedDescriptorSetState'>Finished</a>, <a class='struct' href='../../../vulkano/command_buffer/sys/struct.PipelineBarrierBuilder.html' title='vulkano::command_buffer::sys::PipelineBarrierBuilder'>PipelineBarrierBuilder</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>;
+}</pre>
+            <h2 id='associated-types'>Associated Types</h2>
+            <div class='methods'>
+        <h3 id='associatedtype.Finished' class='method stab '><code>type <a href='#associatedtype.Finished' class='type'>Finished</a>: <a class='trait' href='../../../vulkano/descriptor/descriptor_set/trait.TrackedDescriptorSetFinished.html' title='vulkano::descriptor::descriptor_set::TrackedDescriptorSetFinished'>TrackedDescriptorSetFinished</a></code></h3></div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.extract_buffer_state' class='method stab '><code>unsafe fn <a href='#tymethod.extract_buffer_state' class='fnname'>extract_buffer_state</a>&lt;B&gt;(&amp;mut self, buffer: &amp;B) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;B::CommandListState&gt; <span class='where'>where B: <a class='trait' href='../../../vulkano/buffer/traits/trait.TrackedBuffer.html' title='vulkano::buffer::traits::TrackedBuffer'>TrackedBuffer</a></span></code></h3><div class='docblock'><p>Extracts the state of a buffer of the descriptor set, or <code>None</code> if the buffer isn&#39;t in
+the descriptor set.</p>
+
+<p>Whether the buffer passed as parameter is the same as the one in the descriptor set must be
+determined with the <code>is_same</code> method of <code>TrackedBuffer</code>.</p>
+
+<h1 id='panic' class='section-header'><a href='#panic'>Panic</a></h1>
+<ul>
+<li>Panics if the state of that buffer has already been previously extracted.</li>
+</ul>
+</div><h3 id='tymethod.extract_image_state' class='method stab '><code>unsafe fn <a href='#tymethod.extract_image_state' class='fnname'>extract_image_state</a>&lt;I&gt;(&amp;mut self, image: &amp;I) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;I::CommandListState&gt; <span class='where'>where I: <a class='trait' href='../../../vulkano/image/traits/trait.TrackedImage.html' title='vulkano::image::traits::TrackedImage'>TrackedImage</a></span></code></h3><div class='docblock'><p>Returns the state of an image, or <code>None</code> if the image isn&#39;t in the descriptor set.</p>
+
+<p>See the description of <code>extract_buffer_state</code>.</p>
+
+<h1 id='panic-1' class='section-header'><a href='#panic-1'>Panic</a></h1>
+<ul>
+<li>Panics if the state of that image has already been previously extracted.</li>
+</ul>
+</div><h3 id='tymethod.finish' class='method stab '><code>unsafe fn <a href='#tymethod.finish' class='fnname'>finish</a>(self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>Self::<a class='trait' href='../../../vulkano/descriptor/descriptor_set/trait.TrackedDescriptorSetState.html' title='vulkano::descriptor::descriptor_set::TrackedDescriptorSetState'>Finished</a>, <a class='struct' href='../../../vulkano/command_buffer/sys/struct.PipelineBarrierBuilder.html' title='vulkano::command_buffer::sys::PipelineBarrierBuilder'>PipelineBarrierBuilder</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a></code></h3><div class='docblock'><p>Turns the object into a <code>TrackedDescriptorSetFinished</code>. All the buffers and images whose
+state hasn&#39;t been extracted must be have <code>finished()</code> called on them as well.</p>
+
+<p>The function returns a pipeline barrier to append at the end of the command buffer.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    </ul><script type="text/javascript" async
+                         src="../../../implementors/vulkano/descriptor/descriptor_set/trait.TrackedDescriptorSetState.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "vulkano";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

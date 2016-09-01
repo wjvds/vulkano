@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["FillCommand","Wraps around a commands list and adds a fill buffer command at the end of it."],["FillCommandCb","Wraps around a command buffer and adds an update buffer command at the end of it."]]});

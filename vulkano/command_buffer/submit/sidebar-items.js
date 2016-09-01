@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Submission","Returned when you submit one or multiple command buffers."],["Submit",""],["SubmitInfo","Information about how the submitting function should synchronize the submission."],["SubmitListOpaque",""]],"trait":[["CommandBuffer","Trait for objects that represent commands ready to be executed by the GPU."],["SubmitList",""]]});

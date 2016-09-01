@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `std` mod in crate `vulkano`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, std">
+
+    <title>vulkano::command_buffer::std - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>vulkano</a>::<wbr><a href='../index.html'>command_buffer</a></p><script>window.sidebarCurrent = {name: 'std', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>vulkano</a>::<wbr><a href='../index.html'>command_buffer</a>::<wbr><a class='mod' href=''>std</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-3541' class='srclink' href='../../../src/vulkano/vulkano/src/command_buffer/std/mod.rs.html#10-231' title='goto source code'>[src]</a></span></h1>
+<h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use self::<a class='mod'
+                                       href='./empty/index.html'>empty</a>::<a class='struct' href='../../../vulkano/command_buffer/std/empty/struct.PrimaryCb.html' title='vulkano::command_buffer::std::empty::PrimaryCb'>PrimaryCb</a>;</code></td></tr><tr><td><code>pub use self::<a class='mod'
+                                       href='./empty/index.html'>empty</a>::<a class='struct' href='../../../vulkano/command_buffer/std/empty/struct.PrimaryCbBuilder.html' title='vulkano::command_buffer::std::empty::PrimaryCbBuilder'>PrimaryCbBuilder</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='dispatch/index.html'
+                                  title='vulkano::command_buffer::std::dispatch'>dispatch</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='draw/index.html'
+                                  title='vulkano::command_buffer::std::draw'>draw</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='empty/index.html'
+                                  title='vulkano::command_buffer::std::empty'>empty</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='fill_buffer/index.html'
+                                  title='vulkano::command_buffer::std::fill_buffer'>fill_buffer</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='render_pass/index.html'
+                                  title='vulkano::command_buffer::std::render_pass'>render_pass</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='update_buffer/index.html'
+                                  title='vulkano::command_buffer::std::update_buffer'>update_buffer</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.InsideRenderPass.html'
+                                  title='vulkano::command_buffer::std::InsideRenderPass'>InsideRenderPass</a></td>
+                           <td class='docblock short'>
+                                <p>Extension trait for <code>StdCommandsList</code> that indicates that we&#39;re inside a render pass.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.OutsideRenderPass.html'
+                                  title='vulkano::command_buffer::std::OutsideRenderPass'>OutsideRenderPass</a></td>
+                           <td class='docblock short'>
+                                <p>Extension trait for <code>StdCommandsList</code> that indicates that we&#39;re outside a render pass.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.ResourcesStates.html'
+                                  title='vulkano::command_buffer::std::ResourcesStates'>ResourcesStates</a></td>
+                           <td class='docblock short'>
+                                <p>Trait for objects that hold states of buffers and images.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.StdCommandsList.html'
+                                  title='vulkano::command_buffer::std::StdCommandsList'>StdCommandsList</a></td>
+                           <td class='docblock short'>
+                                <p>A list of commands that can be turned into a command buffer.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "vulkano";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

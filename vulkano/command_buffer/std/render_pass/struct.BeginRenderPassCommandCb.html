@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `BeginRenderPassCommandCb` struct in crate `vulkano`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, BeginRenderPassCommandCb">
+
+    <title>vulkano::command_buffer::std::render_pass::BeginRenderPassCommandCb - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../../index.html'>vulkano</a>::<wbr><a href='../../index.html'>command_buffer</a>::<wbr><a href='../index.html'>std</a>::<wbr><a href='index.html'>render_pass</a></p><script>window.sidebarCurrent = {name: 'BeginRenderPassCommandCb', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../../index.html'>vulkano</a>::<wbr><a href='../../index.html'>command_buffer</a>::<wbr><a href='../index.html'>std</a>::<wbr><a href='index.html'>render_pass</a>::<wbr><a class='struct' href=''>BeginRenderPassCommandCb</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-4296' class='srclink' href='../../../../src/vulkano/vulkano/src/command_buffer/std/render_pass.rs.html#192-199' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct BeginRenderPassCommandCb&lt;L,&nbsp;Rp,&nbsp;F&gt; <span class='where'>where L: <a class='trait' href='../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html' title='vulkano::command_buffer::submit::CommandBuffer'>CommandBuffer</a>, Rp: <a class='trait' href='../../../../vulkano/framebuffer/trait.RenderPass.html' title='vulkano::framebuffer::RenderPass'>RenderPass</a>, F: Framebuffer</span> {
+    // some fields omitted
+}</pre><div class='docblock'><p>Wraps around a command buffer and adds an update buffer command at the end of it.</p>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;L,&nbsp;Rp,&nbsp;Fb&gt; <a class='trait' href='../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html' title='vulkano::command_buffer::submit::CommandBuffer'>CommandBuffer</a> for <a class='struct' href='../../../../vulkano/command_buffer/std/render_pass/struct.BeginRenderPassCommandCb.html' title='vulkano::command_buffer::std::render_pass::BeginRenderPassCommandCb'>BeginRenderPassCommandCb</a>&lt;L,&nbsp;Rp,&nbsp;Fb&gt; <span class='where'>where L: <a class='trait' href='../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html' title='vulkano::command_buffer::submit::CommandBuffer'>CommandBuffer</a>, Rp: <a class='trait' href='../../../../vulkano/framebuffer/trait.RenderPass.html' title='vulkano::framebuffer::RenderPass'>RenderPass</a>, Fb: Framebuffer</span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-4303' class='srclink' href='../../../../src/vulkano/vulkano/src/command_buffer/std/render_pass.rs.html#201-221' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Pool' class='type'><code>type <a href='../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html#associatedtype.Pool' class='type'>Pool</a> = L::Pool</code></h4>
+<div class='docblock'><p>Type of the pool that was used to allocate the command buffer.</p>
+</div><h4 id='associatedtype.SemaphoresWaitIterator' class='type'><code>type <a href='../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html#associatedtype.SemaphoresWaitIterator' class='type'>SemaphoresWaitIterator</a> = L::SemaphoresWaitIterator</code></h4>
+<div class='docblock'><p>Iterator that returns the list of semaphores to wait upon before the command buffer is submitted. <a href="../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html#associatedtype.SemaphoresWaitIterator">Read more</a></p>
+</div><h4 id='associatedtype.SemaphoresSignalIterator' class='type'><code>type <a href='../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html#associatedtype.SemaphoresSignalIterator' class='type'>SemaphoresSignalIterator</a> = L::SemaphoresSignalIterator</code></h4>
+<div class='docblock'><p>Iterator that returns the list of semaphores to signal after the command buffer has finished execution. <a href="../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html#associatedtype.SemaphoresSignalIterator">Read more</a></p>
+</div><h4 id='method.inner' class='method'><code>fn <a href='../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html#tymethod.inner' class='fnname'>inner</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../../../vulkano/command_buffer/sys/struct.UnsafeCommandBuffer.html' title='vulkano::command_buffer::sys::UnsafeCommandBuffer'>UnsafeCommandBuffer</a>&lt;Self::<a class='trait' href='../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html' title='vulkano::command_buffer::submit::CommandBuffer'>Pool</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the inner object.</p>
+</div><h4 id='method.on_submit' class='method'><code>unsafe fn <a href='../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html#tymethod.on_submit' class='fnname'>on_submit</a>&lt;F&gt;(&amp;self, queue: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../../../vulkano/device/struct.Queue.html' title='vulkano::device::Queue'>Queue</a>&gt;, fence: F) -&gt; <a class='struct' href='../../../../vulkano/command_buffer/submit/struct.SubmitInfo.html' title='vulkano::command_buffer::submit::SubmitInfo'>SubmitInfo</a>&lt;Self::<a class='trait' href='../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html' title='vulkano::command_buffer::submit::CommandBuffer'>SemaphoresWaitIterator</a>,&nbsp;Self::<a class='trait' href='../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html' title='vulkano::command_buffer::submit::CommandBuffer'>SemaphoresSignalIterator</a>&gt; <span class='where'>where F: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.FnMut.html' title='core::ops::FnMut'>FnMut</a>() -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../../../vulkano/sync/struct.Fence.html' title='vulkano::sync::Fence'>Fence</a>&gt;</span></code></h4>
+<div class='docblock'><p>Called slightly before the command buffer is submitted. Signals the command buffers that it is going to be submitted on the given queue. The function must return the list of semaphores to wait upon and transitions to perform. <a href="../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html#tymethod.on_submit">Read more</a></p>
+</div><h4 id='method.submit' class='method'><code>fn <a href='../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html#method.submit' class='fnname'>submit</a>(self, queue: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../../../vulkano/device/struct.Queue.html' title='vulkano::device::Queue'>Queue</a>&gt;) -&gt; <a class='struct' href='../../../../vulkano/command_buffer/submit/struct.Submission.html' title='vulkano::command_buffer::submit::Submission'>Submission</a> <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + 'static</span></code></h4>
+<div class='docblock'><p>Submits the command buffer. <a href="../../../../vulkano/command_buffer/submit/trait.CommandBuffer.html#method.submit">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../../";
+        window.currentCrate = "vulkano";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../../jquery.js"></script>
+    <script src="../../../../main.js"></script>
+    
+    <script defer src="../../../../search-index.js"></script>
+</body>
+</html>
